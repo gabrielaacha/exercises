@@ -71,7 +71,7 @@ console.log(
 let student = {
   name: "Mike",
   class: "4A",
-  course: "English"
+  course: "English",
 };
 
 function array(obj) {
@@ -99,6 +99,20 @@ console.log(
 console.log(
   "---------------------------------------exercise-7------------------------------------------------------------------------------------"
 );
+
+let obj1 = {
+  firstName: "John",
+};
+
+let obj2 = {
+  lastName: "Smith",
+};
+
+function object(a, b) {
+  return Object.assign(a, b);
+}
+
+console.log(object(obj1, obj2));
 
 // const obj1 = { 1: 2, 2: 300 }; // this is the source
 // const obj2 = { 1: 4, 3: 3224 }; // this is the target
@@ -138,15 +152,43 @@ console.log(printFavouriteFruits(fruits));
 
 //============================exercises==28-01-20===================================================
 
-// Create a function that looks inside a givin string if it has the word (JavaScript) if so print "I know it's crazy 😉".
+// Create a function that looks inside a given string if it has the word (JavaScript) if so print "I know it's crazy 😉".
+
+function word(str) {
+  return str.split(" ").includes("JavaScript") ? "I know it s crazy" : "opps";
+}
+
+console.log(word("I am JavaS"));
 
 //..................................................................................................
 
 // Create a function that calculates the user age e.g. 2000 -> 20. (Date().getFullYear);
 
+function getAge(num) {
+  return new Date().getFullYear() - num;
+}
+
+console.log(getAge(1987));
+
 //..................................................................................................
 
 // Create a function that accepts a text from user and check if the user has entered a month name, if so print out that month and in which season it is.
+
+const months = (txt) => {
+  const months = ["jan", "feb", "mar", "abr", "jun", "jul", "agos", "sep"].map(
+    (month, idx) => txt.split(" ").includes(month) && [month, idx]
+  );
+
+  const season = months.filter((month) => typeof month === "object")[0][1];
+  const month = months.filter((month) => typeof month === "object")[0][0];
+
+  if (season < 3) return `invierno: ${month}`;
+  if (season < 6) return `verano: ${month}`;
+  if (season < 9) return `otoño: ${month}`;
+  else return "this is not not";
+};
+
+console.log(months("dani valen sep"));
 
 //..................................................................................................
 
@@ -154,9 +196,21 @@ console.log(printFavouriteFruits(fruits));
 // dictionary("bu", "button") ➞ true
 // dictionary("tri", "triplet") ➞ true
 
+const dict = (str, word) => {
+  return word.includes(str);
+};
+
+console.log(dict("bu", "button"));
+
 //..................................................................................................
 
 // Complete the function below so that it returns "Two for me and one for you" when no arguments are passed
+
+const twoAndOne = () => {
+  return "Two for me and one for you";
+};
+
+console.log(twoAndOne());
 
 //..................................................................................................
 
@@ -165,17 +219,52 @@ console.log(printFavouriteFruits(fruits));
 // Example: Calling the function with 2 and 4 will return 16 (2 to the power of 4),
 // If you call it with just 2, it should return 4 (2 to the power of 2).
 
+const powNum = (num) => {
+  return Math.pow(num, 2);
+};
+
+console.log(powNum(4));
+console.log(powNum(2));
+
 //..................................................................................................
 
 // Create a function that accepts the (user name, age, address and unlimited number of activities the user enjoy doing)
 // * print all the user input adding the greeting part and more text turning that input into a readable text.
 // * If one of his activities was dance ￼or party print "you are cool".
 
+const user = (name, age, address, hobbies) => {
+  return `Dear ${name}, ${age} years olf, living in ${address},` &&
+    hobbies.includes("dance" || "party")
+    ? "you are cool"
+    : "you are not cool";
+};
+
+console.log(
+  user("Gabriela", 34, "Selchowerstrasse", "yoga", "dance", "reading")
+);
+
 //..................................................................................................
 
 // Count Occurrences. Create a function that accepts two arguments: a string and a letter.
 // The function should count the number of occurrences of that letter in the string.
 // i.e. countOccurrences(“this is a string”, “i”) ➞ 3
+
+const occurrences = (str, letter) =>
+  str.split("").filter((x) => x === letter).length;
+
+console.log(occurrences("this is a string", "i"));
+
+//----------------------------------------------------------------------------------------
+
+var arr = [5, 5, 5, 2, 2, 2, 2, 2, 9, 4];
+var counts = {};
+
+for (var i = 0; i < arr.length; i++) {
+  var num = arr[i];
+  counts[num] = counts[num] ? counts[num] + 1 : 1;
+}
+
+console.log(counts[5], counts[2], counts[9], counts[4], counts);
 
 //..................................................................................................
 
@@ -184,12 +273,15 @@ console.log(printFavouriteFruits(fruits));
 // Calculate the dog’s age in dog years based on the calculation of 1 human year = 7 dog years.
 // i.e. dogAge(4) ➞ “Your doggo is 28 years old in dog years!”
 
+const dogAge = (edge) => edge * 7;
+console.log(dogAge(4));
+
 //..................................................................................................
 
 // A Lifetime Supply... Create a function to calculate how much you’ll actually be getting for a lifetime supply of your favourite snack.
-// The function should accept two arguments: age and amount per day. The function should calculate the amount that will be consumed for the rest of your life given a constant max age.
 // Bonus Accept floating point values for amount per day and round the result.
 // i.e. calcSupply(25, 2) ➞ “You will need 40,150 bars of chocolate (2 a day) to last you til the age of 80.”
+// The function should accept two arguments: age and amount per day. The function should calculate the amount that will be consumed for the rest of your life given a constant max age.
 
 //..................................................................................................
 
@@ -213,7 +305,47 @@ console.log(printFavouriteFruits(fruits));
 // The “.” and the “@” must be in the appropriate places.
 // e.g. “john.smith@com” is invalid while “john.smith@email.com” is valid.
 
+const mail = (str) => {
+  var newArr = [];
+  // str.split("").includes("@" && ".") == " " + "@" + " " + "." + " "
+  //   ? true
+  //   : false;
+};
+
+console.log(mail("johmith@emaicom"));
+
 // @ and . not at the beginning and not at the end but they are in the string
+
+//-------------------------------------------
+
+console.log("-----------------------email-------------------------------");
+const emailVal = (str) => {
+  const array = str.split("");
+  const newArr = [];
+  for (let i = 0; i <= array.length; i++) {
+    if (
+      (array[i] === "@" && typeof array[i - 1] === "string") ||
+      array[i] === "."
+    ) {
+      newArr.push(array[i]);
+    }
+  }
+
+  for (let i = 0; i <= newArr.length; i++) {
+    if (
+      newArr[i] === "@" &&
+      newArr[i + 1] === "." &&
+      newArr[i + 2] === undefined
+    ) {
+      return true;
+    } else {
+      false;
+    }
+  }
+};
+
+console.log(emailVal("gaby.acha@hotmail.com"));
+
 console.log(
   "-------------------------exercise--------------------------------------------------------------"
 );
@@ -224,20 +356,53 @@ console.log(
 // If the user has one kid subtract 30% taxes from the salary
 // For two kids subtract 25% and 20% for more than two.
 // If the user has no kids the taxes will be 55%
-// Print out the result in a good formated way.
+// Print out the result in a good formatted way.
 
 console.log(
-  "-------------------------exercise-v1-------------------------------------------------------------"
+  "-------------------------exercise-kids-v1-------------------------------------------------------------"
 );
+// const person = (userName, salary, ...kidsNames) => {
+//   let y = 0;
+//   let x = kidsNames.length;
+
+//   if (x === 0) {
+//     y = 0.55;
+//   } else if (x === 1) {
+//     y = 0.3;
+//   } else if (x === 2) {
+//     y = 0.25;
+//   } else {
+//     y = 0.2;
+//   }
+
+//   let totalSalary = salary - salary * y;
+//   return `hello ${userName} your netto salary is ${totalSalary}€.`;
+// };
+
+// console.log(person("matt", 1200, "pup", "pip", "pop"));
 
 //.....................................version 2...............................................................
 console.log(
-  "-------------------------exercise-v2-------------------------------------------------------------"
+  "-------------------------exercise-kids-v2-------------------------------------------------------------"
 );
+
+const person = (userName, salary, ...kidsNames) => {
+  const result = (percentage) =>
+    `hello ${userName} your netto salary is ${salary - salary * percentage}€.`;
+
+  if (kidsNames.length === 0) return result(0.55);
+  else if (kidsNames.length === 1) return result(0.3);
+  else if (kidsNames.length === 2) return result(0.25);
+  else return result(0.2);
+};
+
+console.log(person("matt", 1200, "pup", "pip", "pop"));
+console.log(person("matt", 1200));
+console.log(person("matt", 1200, "pop"));
 
 //.....................................version 3...............................................................
 console.log(
-  "-------------------------exercise-v3-------------------------------------------------------------"
+  "-------------------------exercise-kids-v3-------------------------------------------------------------"
 );
 
 //..................................................................................................
@@ -247,6 +412,11 @@ console.log(
 console.log(
   "-------------------------exercise--------------------------------------------------------------"
 );
+
+const text = (phoneNr) => {};
+
+text();
+
 //..................................................................................................
 
 //============================exercises==30-01-20===================================================

@@ -128,7 +128,7 @@ console.log(
   "-------------------------exercise-v1-------------------------------------------------------------"
 );
 function salary(userName, salary, ...kidsNames) {
-  let x = kidsNames.map(str => str).length;
+  let x = kidsNames.map((str) => str).length;
   let y = 0;
 
   if (x === 1) {
@@ -182,19 +182,22 @@ function salary3(name, salary, ...kidNames) {
   let obj = [
     { tax1: salary * 0.3 },
     { tax2: salary * 0.25 },
-    { tax3: salary * 0.2 }
+    { tax3: salary * 0.2 },
   ];
 
   switch (x) {
     case 1:
-      return ` ${name} makes a salary of ${salary -
-        Object.values(obj[1])}€ per month`;
+      return ` ${name} makes a salary of ${
+        salary - Object.values(obj[1])
+      }€ per month`;
     case 2:
-      return ` ${name} makes a salary of ${salary -
-        Object.values(obj[1])}€ per month`;
+      return ` ${name} makes a salary of ${
+        salary - Object.values(obj[1])
+      }€ per month`;
     default:
-      return ` ${name} makes a salary of ${salary -
-        Object.values(obj[1])}€ per month`;
+      return ` ${name} makes a salary of ${
+        salary - Object.values(obj[1])
+      }€ per month`;
   }
 }
 

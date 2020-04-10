@@ -5,7 +5,7 @@
 const person2 = {
   profession: "programmer",
   destination: "peru",
-  vacationDays: 10
+  vacationDays: 10,
 };
 
 for (let prop in person2) {
@@ -33,7 +33,7 @@ const getObjectValues = {};
 
 //.......................Hadis solution..............................................................................
 
-const getValues = object => {
+const getValues = (object) => {
   return Object.values(object);
 };
 console.log(getValues(person));
@@ -91,14 +91,14 @@ console.log(getValues(car));
 const student = {
   name: "Mike",
   class: "4A",
-  course: "English"
+  course: "English",
 };
 
 console.log(Object.getOwnPropertyNames(student));
 
 //....................Hadis solution..................
 
-const getProperties = obj => {
+const getProperties = (obj) => {
   return Object.getOwnPropertyNames(obj);
 };
 console.log(Object.keys(person));
@@ -213,7 +213,7 @@ const fun2 = (x, o) => {
   // the function is returning an object (instead of a variable)
 };
 const o3 = {
-  something: "ccc"
+  something: "ccc",
 };
 
 console.log(fun({ name: "GG", age: 33 }, { lastNAme: "Allin" }));
@@ -239,7 +239,7 @@ function zodiac(name, day, month, year) {
     birthDate: day,
     birthMonth: month,
     birthYear: year,
-    starSigns: function() {
+    starSigns: function () {
       let signs = [
         { astro: acuarius, from: 0120 },
         { astro: piscis, from: 0219 },
@@ -252,9 +252,9 @@ function zodiac(name, day, month, year) {
         { astro: libra, from: 0923 },
         { astro: scorpio, from: 1024 },
         { astro: sagittarius, from: 1122 },
-        { astro: capricorn, from: 1222 }
+        { astro: capricorn, from: 1222 },
       ];
-    }
+    },
   };
   let x = day + month;
   // let y = result.starSigns.signs.find(sign => sign < signs.from());
@@ -370,7 +370,7 @@ console.log(x);
 
 let person = {
   name: "Ali",
-  job: "teacher"
+  job: "teacher",
 };
 
 function keysToValues(obj) {
